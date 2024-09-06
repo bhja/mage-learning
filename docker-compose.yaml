@@ -1,21 +1,22 @@
 services:
   magic:
     image: mageai/mageai:latest
+    command: mage start explore
     build:
       context: .
       dockerfile: Dockerfile
     environment:
-      MAGE_DATABASE_URL:
-      ports:
-      - 6789:6789
+      MAGE_DATABASE_CONNECTION_URL: postgresql+psycopg2://root:p@ssword@postgres:5432/postgres
+    ports:
+        - "6789:6789"
     volumes:
-      - ./projects:/home/src/
-    restart: on-failure:5
+      - ./:/home/src/
+    depends_on:
+      - postgres
+
   postgres:
     image: postgres:latest
-    restart: on-failure
     container_name: explore-postgres
-
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: root
