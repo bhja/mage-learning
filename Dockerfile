@@ -1,7 +1,7 @@
 FROM mageai/mageai:latest
 
 # Replace default_repo with the name of your project (e.g. demo_project)
-ARG PROJECT_NAME=mage-learn
+ARG PROJECT_NAME=explore
 ARG MAGE_CODE_PATH=/home/src
 ARG USER_CODE_PATH=${MAGE_CODE_PATH}/${PROJECT_NAME}
 
