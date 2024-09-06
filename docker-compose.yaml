@@ -9,7 +9,7 @@ services:
       ports:
       - 6789:6789
     volumes:
-      - ./modules:/home/src/
+      - ./projects:/home/src/
     restart: on-failure:5
   postgres:
     image: postgres:latest
